@@ -18,7 +18,7 @@ done
 
 if [ $headsCount -eq $tailsCount ]
 then
-	echo "Heads=Tails. So it's a TIE"
+	echo "Heads equals to Tails. So it's a TIE"
 elif [ $headsCount -gt $tailsCount ]
 then
 	echo "Heads win on Tails by "$(($headsCount-$tailsCount))
