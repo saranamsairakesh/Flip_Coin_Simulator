@@ -1,7 +1,7 @@
 headsCount=0
 tailsCount=0
 
-for((i=1;i<=10;i++))
+while [ 5 -eq 5 ]
 do
 	flip=$(($RANDOM%2))
 	if [ $flip -eq 1 ]
@@ -10,6 +10,18 @@ do
 	else
 		tailsCount=$(($tailsCount+1))
 	fi
+	if [ $headsCount -eq 21 ] || [ $tailsCount -eq 21 ]
+	then
+		break
+	fi
 done
 
-echo "In 10 flips Heads Count= "$headsCount", Tails Count= "$tailsCount
+if [ $headsCount -eq $tailsCount ]
+then
+	echo "Heads=Tails. So it's a TIE"
+elif [ $headsCount -gt $tailsCount ]
+then
+	echo "Heads win on Tails by "$(($headsCount-$tailsCount))
+else
+	echo "Tails win on Heads by "$(($tailsCount-$headsCount))
+fi
